@@ -409,6 +409,7 @@ void CWindQuantCppSampleDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	long errCode = CWAPIWrapperCpp::start();
+	printf("errorCode: %d", errCode);
 	if (errCode == 0)
 	{
 		MessageBox(L"登录数据接口成功！", L"提示", MB_OK);
@@ -454,10 +455,12 @@ void CWindQuantCppSampleDlg::OnBnClickedButton3()
 	case 0://wsd
 		{
 			errCode = CWAPIWrapperCpp::wsd(wdata, m_windCodes, m_indicators, m_startTime, m_endTime);
+			printf ("errorCode: %d", errCode);
 			if (errCode == 0)
 			{
 				if (wdata.GetFieldsLength() > 1)
 				{
+					printf("%d", 100);
 					updateList(wdata);
 				}
 				else
